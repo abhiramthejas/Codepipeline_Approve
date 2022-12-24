@@ -25,12 +25,12 @@ After creating the CodeDeploy, we can start creating the CodePipeline.
 
 To create an AWS CodePipeline:
 
-    Choose the menu AWS > CodePipeline > Create Pipeline.
-    Provide a pipeline name and role name.
+ Choose the menu AWS > CodePipeline > Create Pipeline.
+    1. Provide a pipeline name and role name.
     On the second step of the pipeline creation, choose the provider where your code is committed. (I am using Github as my source provider. Make sure our AWS account is connected with Github).
-    In the third stage of the pipeline, provide your CodeBuild stage. (I am skipping this option as I am directly pushing the code to the EC2 instance using CodeDeploy).
-    On the fourth step, provide the deploy provider. (I am using CodeDeploy as my deploy provider and choosing my application name and deployment group name).
-    At the last step, review your settings and create the CodePipeline.
+    2. In the third stage of the pipeline, provide your CodeBuild stage. (I am skipping this option as I am directly pushing the code to the EC2 instance using CodeDeploy).
+   3. On the fourth step, provide the deploy provider. (I am using CodeDeploy as my deploy provider and choosing my application name and deployment group name).
+   4. At the last step, review your settings and create the CodePipeline.   
 
 Next, we need to add our Approve stage in the CodePipeline by selecting your CodePipeline and clicking "Edit". Add a stage after the source and give it a stage name like "Approval-stage" and click on "Add action group" to add the action in the stage.
 
