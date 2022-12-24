@@ -21,16 +21,16 @@ After creating the application, choose that application and create a deployment 
 
 After creating the CodeDeploy, we can start creating the CodePipeline.
 
-## Code-pipeline
+## Code-pipeline 
 
 To create an AWS CodePipeline:
 
- Choose the menu AWS > CodePipeline > Create Pipeline.
-    1. Provide a pipeline name and role name.
-    On the second step of the pipeline creation, choose the provider where your code is committed. (I am using Github as my source provider. Make sure our AWS account is connected with Github).
-    2. In the third stage of the pipeline, provide your CodeBuild stage. (I am skipping this option as I am directly pushing the code to the EC2 instance using CodeDeploy).
-   3. On the fourth step, provide the deploy provider. (I am using CodeDeploy as my deploy provider and choosing my application name and deployment group name).
-   4. At the last step, review your settings and create the CodePipeline.   
+
+   1. Provide a pipeline name and role name.  
+   2. On the second step of the pipeline creation, choose the provider where your code is committed. (I am using Github as my source provider. Make sure our AWS account is connected with Github).
+   3. In the third stage of the pipeline, provide your CodeBuild stage. (I am skipping this option as I am directly pushing the code to the EC2 instance using CodeDeploy).
+   4. On the fourth step, provide the deploy provider. (I am using CodeDeploy as my deploy provider and choosing my application name and deployment group name).
+   5. At the last step, review your settings and create the CodePipeline.   
 
 Next, we need to add our Approve stage in the CodePipeline by selecting your CodePipeline and clicking "Edit". Add a stage after the source and give it a stage name like "Approval-stage" and click on "Add action group" to add the action in the stage.
 
@@ -42,10 +42,10 @@ To add an action group:
 
 We need to add one more manual approve stage after this stage and we will use Lambda to trigger it.
 
-To create the manual approve stage:
+To create the manual approve stage
 
-    1. Follow the same steps as before.
-    2. Use "Action name" and "Stage name" as "Lambda-Approve".
+   1. Follow the same steps as before.
+   2. Use "Action name" and "Stage name" as "Lambda-Approve".
 
 ![image](https://user-images.githubusercontent.com/17767960/209428051-dbf105a3-a2fd-4a1a-9a7b-04104d963bab.png)
 
